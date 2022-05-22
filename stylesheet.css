@@ -1,5 +1,11 @@
 input {
     display: flex;
-    flex-direction: column;
-    margin: 10px 0px;
+
+    margin: 7px 0px;
+}
+
+.paper {
+    display:flex;
+    align-items: center;
+    gap: 10px;
 }

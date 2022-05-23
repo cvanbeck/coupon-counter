@@ -14,21 +14,21 @@ function couponMultiplier(paperID, paperPrice) {
 // Not sure if using objects in arrays is the way to go. I think a better way would be for the function at the bottom
 // to use the id to find the price., maybe just an array for each one is better then?
 
-//let telegraphTotal = document.getElementById("telegraph-total")
-// let theTelegraph = {id: "telegraph", price:1.50}
-// let theTimes = {id: "times", price:0.80}
-// let theGuardian = {id: "guardian", price: 2.00}
-// let dailyMail = {id:"dailymail", price: 3.00}
-// let newspaperList = [theTelegraph, theTimes, theGuardian, dailyMail]
+
+let priceList = {"telegraph":1.50, "times":0.80, "guardian":2.00, "dailymail":3.00}
 
 
 allPapers = document.querySelectorAll(".input-field")
 allPapers.forEach((allPapers) => {
     allPapers.addEventListener("input", () => {
+        let paperName = allPapers.id
         console.log("INPUT RECEIVED!" + allPapers.id)
-        console.log(couponMultiplier(allPapers.id, ))
+        console.log(couponMultiplier(paperName, priceList[paperName]))
+    
     })
 })
 
 
-// next step is to find a way to incorporate the price of each paper into couponMultiplier
+// next steps are to get all the papers and prices set up, then I need a way to easily
+// change prices of a paper and also to adjust for saturday/sunday prices. I also need
+// to display the value on the screen instead of in the console and also to add all the value together.

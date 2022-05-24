@@ -8,21 +8,6 @@ function couponMultiplier(paperID, paperPrice) {
     }
 }
 
-
-let priceList = {
-    "telegraph": 1.50,
-    "times": 0.80,
-    "guardian": 2.00,
-    "dailymail": 3.00
-}
-
-let couponTotalPriceList = { 
-    "telegraph": 0.00, 
-    "times": 0.00, 
-    "guardian": 0.00, 
-    "dailymail": 0.00 
-}
-
 // Adds the totals of each newspaper together and displays it on screen.
 let sumOfCoup = 0.00
 function sumOfCoupons() {
@@ -50,6 +35,6 @@ allPapers.forEach((allPapers) => {
     })
 })
 
-// next steps are to get all the papers and prices set up, then I need a way to easily
-// change prices of a paper and also to adjust for saturday/sunday prices. I also need
-// to display the value on the screen instead of in the console and also to add all the value together.
+// Next steps: Add all papers/prices, add a function to switch between weekday/sat/sun prices,
+// Add a function to easily change price of individual paper, add a function that automatically
+// generates search bar/total div for each paper so I don't have to do it manually.

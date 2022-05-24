@@ -1,33 +1,54 @@
-
 function couponMultiplier(paperID, paperPrice) {
-    const numberOfCoupons = document.getElementById(paperID).value;
-    const couponsTotal = numberOfCoupons * paperPrice
-    if (couponsTotal > 0){
-        return couponsTotal.toFixed(2) 
+    const couponsTotal = document.getElementById(paperID).value * paperPrice
+    if (couponsTotal > 0) {
+        return couponsTotal.toFixed(2)
     }
     else {
-        return 0
+        return "0.00"
     }
-
 }
 
-// Not sure if using objects in arrays is the way to go. I think a better way would be for the function at the bottom
-// to use the id to find the price., maybe just an array for each one is better then?
 
+let priceList = {
+    "telegraph": 1.50,
+    "times": 0.80,
+    "guardian": 2.00,
+    "dailymail": 3.00
+}
 
-let priceList = {"telegraph":1.50, "times":0.80, "guardian":2.00, "dailymail":3.00}
+let couponTotalPriceList = { 
+    "telegraph": 0.00, 
+    "times": 0.00, 
+    "guardian": 0.00, 
+    "dailymail": 0.00 
+}
 
+// Adds the totals of each newspaper together and displays it on screen.
+let sumOfCoup = 0.00
+function sumOfCoupons() {
+    sumOfCoup = 0
+    for (let newspaper in couponTotalPriceList) {
+        sumOfCoup += couponTotalPriceList[newspaper]
+    }
+    document.getElementById("sum-of-amounts").innerHTML = sumOfCoup.toFixed(2);
+}
 
+// Multiplies the number of papers by the price and then displays on screen.
+function couponObjectUpdater(name) {
+    couponTotalPriceList[name] = parseFloat(couponMultiplier(name, priceList[name]));
+    document.getElementById(name + "-total").innerHTML = couponTotalPriceList[name].toFixed(2)
+}
+
+// Runs and updates figures each time a value is entered.
 allPapers = document.querySelectorAll(".input-field")
 allPapers.forEach((allPapers) => {
     allPapers.addEventListener("input", () => {
-        let paperName = allPapers.id
-        console.log("INPUT RECEIVED!" + allPapers.id)
-        console.log(couponMultiplier(paperName, priceList[paperName]))
-    
+        let paperName = allPapers.id;
+        couponObjectUpdater(paperName);
+        sumOfCoupons();
+
     })
 })
-
 
 // next steps are to get all the papers and prices set up, then I need a way to easily
 // change prices of a paper and also to adjust for saturday/sunday prices. I also need

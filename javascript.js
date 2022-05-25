@@ -8,6 +8,39 @@ function couponMultiplier(paperID, paperPrice) {
     }
 }
 
+let listOfPapers = Object.keys(priceList)
+function generateLayout() {
+listOfPapers.forEach((listOfPapers) => {
+    let paperFieldHtml = document.getElementById("paper-field") 
+    
+    const div = document.createElement("div")
+    div.setAttribute("id", listOfPapers+"paper")
+    div.setAttribute("class", "paper")
+
+    
+    const input = document.createElement("input")
+    input.setAttribute("type", "search")
+    input.setAttribute("class", "input-field")
+    input.setAttribute("placeholder", listOfPapers)
+    input.setAttribute("id", listOfPapers)
+    
+    
+    const innerDiv = document.createElement("div")
+    innerDiv.setAttribute("class", "total-amount")
+    innerDiv.innerHTML = 0.00.toFixed(2)
+    innerDiv.setAttribute("id", listOfPapers+"-total")
+    
+    paperFieldHtml.appendChild(div)
+    
+    let divElement = document.getElementById(listOfPapers+"paper")
+    divElement.appendChild(input)
+    divElement.appendChild(innerDiv)
+    
+})
+}
+generateLayout()
+
+
 // Adds the totals of each newspaper together and displays it on screen.
 let sumOfCoup = 0.00
 function sumOfCoupons() {
@@ -35,6 +68,6 @@ allPapers.forEach((allPapers) => {
     })
 })
 
-// Next steps: Add all papers/prices, add a function to switch between weekday/sat/sun prices,
-// Add a function to easily change price of individual paper, add a function that automatically
-// generates search bar/total div for each paper so I don't have to do it manually.
+// Next steps: add a function to switch between weekday/sat/sun prices,
+// Add a function to easily change price of individual paper, make it pretty
+

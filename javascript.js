@@ -1,5 +1,5 @@
 function couponMultiplier(paperID, paperPrice) {
-    const couponsTotal = document.getElementById(paperID).value * paperPrice
+    const couponsTotal = Math.floor(document.getElementById(paperID).value) * paperPrice
     if (couponsTotal > 0) {
         return couponsTotal.toFixed(2)
     }

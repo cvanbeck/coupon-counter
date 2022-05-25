@@ -19,7 +19,7 @@ listOfPapers.forEach((listOfPapers) => {
 
     
     const input = document.createElement("input")
-    input.setAttribute("type", "search")
+    input.setAttribute("type", "number")
     input.setAttribute("class", "input-field")
     input.setAttribute("placeholder", listOfPapers)
     input.setAttribute("id", listOfPapers)
